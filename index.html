@@ -45,8 +45,10 @@
                     versionID: 'production',
                     container: document.getElementById('voiceflow-chat-container')
                 }).then(function(instance) {
-                    // Ensure the chat bubble opens automatically
-                    instance.openChat();
+                    // Wait a moment for the chat to fully load and then open it
+                    setTimeout(function() {
+                        instance.openChat();
+                    }, 1000); // Adjust the delay if necessary
                 });
             }
             v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; 
@@ -56,4 +58,5 @@
     </script>
 </body>
 </html>
+
 
