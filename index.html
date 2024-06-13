@@ -30,6 +30,14 @@
             justify-content: center;
             align-items: center;
         }
+
+        .voiceflow-chat-bubble {
+            display: none !important; /* Hide the chat bubble */
+        }
+        
+        .voiceflow-open-chat {
+            display: block !important; /* Ensure the chat window is visible */
+        }
     </style>
 </head>
 <body>
@@ -48,6 +56,11 @@
                     // Wait for the chat to fully load and then open it
                     instance.on('load', function() {
                         instance.openChat();
+                        // Force the chat window to remain open
+                        var chatWindow = document.querySelector('.voiceflow-open-chat');
+                        if (chatWindow) {
+                            chatWindow.style.display = 'block';
+                        }
                     });
                 });
             };
@@ -58,3 +71,4 @@
     </script>
 </body>
 </html>
+
